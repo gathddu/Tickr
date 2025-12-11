@@ -14,7 +14,9 @@
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
+    "@tanstack/react-query": "^5.90.12",
     "@trpc/client": "^11.7.2",
+    "@trpc/react-query": "^11.7.2",
     "@trpc/server": "^11.7.2",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",
