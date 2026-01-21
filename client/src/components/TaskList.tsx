@@ -1,4 +1,5 @@
 import { trpc } from "../lib/trpc";
+import { TimeTracker } from "./TimeTracker";
 
 export function TaskList() {
   const tasks = trpc.tasks.list.useQuery();
@@ -71,6 +72,7 @@ export function TaskList() {
               Delete
             </button>
           </div>
+          <TimeTracker taskId={task.id} taskStatus={task.status} />
         </div>
       ))}
     </div>
