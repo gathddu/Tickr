@@ -8,7 +8,6 @@ let tasks: {
     description: string | null;
     status: "pending" | "in_progress" | "completed";
     priority: "low" | "medium" | "high";
-    dueDate: Date | null;
     createdAt: Date;
 }[] = [];
 
@@ -32,7 +31,6 @@ export const tasksRouter = router({
                 title: z.string().min(1),
                 description: z.string().optional(),
                 priority: z.enum(["low", "medium", "high"]).default("medium"),
-                dueDate: z.string().optional(),
             })
         )
         .mutation(({ input }) => {
@@ -42,7 +40,6 @@ export const tasksRouter = router({
                 description: input.description || null,
                 status: "pending" as const,
                 priority: input.priority,
-                dueDate: input.dueDate ? new Date(input.dueDate) : null,
                 createdAt: new Date(),
             };
             tasks.push(task);
@@ -57,7 +54,6 @@ export const tasksRouter = router({
                 description: z.string().optional(),
                 status: z.enum(["pending", "in_progress", "completed"]).optional(),
                 priority: z.enum(["low", "medium", "high"]).optional(),
-                dueDate: z.string().nullable().optional(),
             })
         )
         .mutation(({ input }) => {
@@ -68,9 +64,6 @@ export const tasksRouter = router({
             if (input.description !== undefined) task.description = input.description;
             if (input.status) task.status = input.status;
             if (input.priority) task.priority = input.priority;
-            if (input.dueDate !== undefined) {
-                task.dueDate = input.dueDate ? new Date(input.dueDate) : null;
-            }
 
             return task;
         }),

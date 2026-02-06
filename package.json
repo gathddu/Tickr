@@ -7,7 +7,8 @@
     "dev": "tsx watch server/index.ts",
     "dev:client": "vite",
     "build": "vite build && tsc",
-    "start": "node dist/server/index.js"
+    "start": "node dist/server/index.js",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "Jess Saito Forster",
@@ -40,6 +41,7 @@
     "tailwindcss": "^4.1.17",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "vite": "^7.2.7"
+    "vite": "^7.2.7",
+    "vitest": "^4.0.18"
   }
 }
