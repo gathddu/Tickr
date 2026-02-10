@@ -24,7 +24,7 @@ describe("Tasks Router", () => {
         description: null,
       });
       expect(task.id).toBeDefined();
-      expect(task.createdAt).toBeInstanceOf(Date);
+      expect(task.created_at).toBeInstanceOf(Date);
     });
 
     it("should create a task with all fields", async () => {
